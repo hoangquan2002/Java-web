@@ -9,7 +9,7 @@
 <div style="padding: 10px 30px; color: red; font-size: 25px; font-weight: bold;">Training</div>
 <hr width="98%" align="center" color="black" size="1" />
 <div style="padding: 8px 30px;">Login</div>
-<center>
+<div style="text-align: center;">
     <div style="padding: 60px 30px 30px; font-size: 24px; color: rgb(51, 157, 255); font-weight: bold;">Login</div>
     <%
         String errorMessage = "";
@@ -18,7 +18,7 @@
         }
     %>
     <div class="error-message"><%=errorMessage%></div>
-</center>
+</div>
 
 <center>
     <form method="post" action="T001">
