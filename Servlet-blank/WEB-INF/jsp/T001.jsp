@@ -9,7 +9,7 @@
 <div style="padding: 10px 30px; color: red; font-size: 25px; font-weight: bold;">Training</div>
 <hr width="98%" align="center" color="black" size="1" />
 <div style="padding: 8px 30px;">Login</div>
-<div style="text-align: center;">
+<center>
     <div style="padding: 60px 30px 30px; font-size: 24px; color: rgb(51, 157, 255); font-weight: bold;">Login</div>
     <%
         String errorMessage = "";
@@ -18,12 +18,12 @@
         }
     %>
     <div class="error-message"><%=errorMessage%></div>
-</div>
+</center>
 
 <center>
     <form method="post" action="T001">
         <table>
-            <tr>
+            <tr  style="background-color: transparent">
                 <td>User ID：</td>
                 <td><input type="text" id="username" name="username"></td>
             </tr>
