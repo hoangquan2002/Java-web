@@ -34,15 +34,13 @@ public class T002 extends HttpServlet{
 		T002Dao dao = new T002Dao();
 		HttpSession session = req.getSession();		
 		Integer index = (Integer) session.getAttribute("index");
-		if (index == null) {
-			index = 0;
-		}
-		
+		index = 0;		
         List<CustomerInfo> listAccount = dao.getlistAccount(null, null, null, null, null, null);
-        List<List<CustomerInfo>> dividedLists = ListDivide.dividedListAccount(listAccount);
-        session.setAttribute("dividedLists", dividedLists);
-		req.setAttribute("list", dividedLists.get(index));
-		session.setAttribute("totalPage",dividedLists.size());
+        session.setAttribute("listAccount",listAccount);
+        List<CustomerInfo> bathList = ListDivide.getBatchAtIndex(listAccount, index);
+        session.setAttribute("bathList", bathList);
+		req.setAttribute("bathList", bathList);
+		session.setAttribute("totalPage",listAccount.size()/15);
 
 		myRD.forward(req, resp);
 
@@ -70,10 +68,10 @@ public class T002 extends HttpServlet{
 			
 			T002Dao dao = new T002Dao();
 			List<CustomerInfo> listAccount = dao.getlistAccount(null, nameSearch, sexSearch, null, birthdayFromSearch, birthdayToSearch);
-			List<List<CustomerInfo>> dividedLists = ListDivide.dividedListAccount(listAccount);       
-			index=0;
+			session.setAttribute("listAccount", listAccount);
+			List<CustomerInfo> bathList = ListDivide.getBatchAtIndex(listAccount, index);			
 			session.setAttribute("index", index);
-			session.setAttribute("dividedLists", dividedLists);
+			session.setAttribute("bathList", bathList);
 			
 			
 			request.setAttribute("customerName", nameSearch);
@@ -81,7 +79,7 @@ public class T002 extends HttpServlet{
 			request.setAttribute("birthdayFrom", birthdayFromSearch);
 			request.setAttribute("birthdayTo", birthdayToSearch);
 
-			request.setAttribute("list", dividedLists.get(index));
+			request.setAttribute("bathList", bathList);
 
 		}
 		else if("next".equals(sMode))
@@ -89,8 +87,9 @@ public class T002 extends HttpServlet{
 			
 			index++;			
 			session.setAttribute("index", index);
-		    List<List<CustomerInfo>> dividedLists = (List<List<CustomerInfo>>) session.getAttribute("dividedLists");
-			request.setAttribute("list", dividedLists.get(index));
+			List<CustomerInfo> listAccount = (List<CustomerInfo>) session.getAttribute("listAccount");
+			List<CustomerInfo> bathList = ListDivide.getBatchAtIndex(listAccount, index);
+		    request.setAttribute("bathList", bathList);
 
 		}
 		else if("previous".equals(sMode))
@@ -98,24 +97,28 @@ public class T002 extends HttpServlet{
 			
 			index--;			
 			session.setAttribute("index", index);
-		    List<List<CustomerInfo>> dividedLists = (List<List<CustomerInfo>>) session.getAttribute("dividedLists");
-
-			request.setAttribute("list", dividedLists.get(index));
+			List<CustomerInfo> listAccount = (List<CustomerInfo>) session.getAttribute("listAccount");
+			List<CustomerInfo> bathList = ListDivide.getBatchAtIndex(listAccount, index);
+		    request.setAttribute("bathList", bathList);
 		}
 		else if("first".equals(sMode))
 		{
 			
 			index = 0 ;			
 			session.setAttribute("index", index);
-		    List<List<CustomerInfo>> dividedLists = (List<List<CustomerInfo>>) session.getAttribute("dividedLists");
-			request.setAttribute("list", dividedLists.get(index));
+			List<CustomerInfo> listAccount = (List<CustomerInfo>) session.getAttribute("listAccount");
+			List<CustomerInfo> bathList = ListDivide.getBatchAtIndex(listAccount, index);
+		    request.setAttribute("bathList", bathList);
 		}
 		else if("last".equals(sMode))
 		{
-		    List<List<CustomerInfo>> dividedLists = (List<List<CustomerInfo>>) session.getAttribute("dividedLists");
-			index = dividedLists.size() -1  ;			
-			session.setAttribute("index", index);	
-			request.setAttribute("list", dividedLists.get(index));
+			List<CustomerInfo> listAccount = (List<CustomerInfo>) session.getAttribute("listAccount");
+			index = (listAccount.size()/15) -1  ;
+			session.setAttribute("index", index);
+			List<CustomerInfo> bathList = ListDivide.getBatchAtIndex(listAccount, index);
+		    request.setAttribute("bathList", bathList);	    
+						
+				
 		}
 		else if("add".equals(sMode))
 		{

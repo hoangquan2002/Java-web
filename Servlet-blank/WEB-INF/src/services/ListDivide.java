@@ -5,20 +5,26 @@ import java.util.ArrayList;
 
 import model.CustomerInfo;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class ListDivide {
         
-    public static List<List<CustomerInfo>> dividedListAccount(List<CustomerInfo> listAccount) {
-        List<List<CustomerInfo>> subLists = new ArrayList<>();
-        if (listAccount.size() > 15) {
-            final int batchSize = 15;
-            for (int i = 0; i < listAccount.size(); i += batchSize) {
-                int endIndex = Math.min(i + batchSize, listAccount.size());
-                subLists.add(new ArrayList<>(listAccount.subList(i, endIndex)));
-            }
-        } else {
-            subLists.add(listAccount);
+    public static List<CustomerInfo> getBatchAtIndex(List<CustomerInfo> listAccount, int index) {
+        List<CustomerInfo> batch = new ArrayList<>();
+        int startIndex = index * 15;
+        int endIndex = Math.min(startIndex + 15, listAccount.size());
+        
+        if (startIndex >= listAccount.size() || startIndex < 0) {
+            // Return an empty list if the start index is out of bounds
+            return batch;
         }
 
-        return subLists;
+        for (int i = startIndex; i < endIndex; i++) {
+            batch.add(listAccount.get(i));
+        }
+
+        return batch;
     }
 }
+
