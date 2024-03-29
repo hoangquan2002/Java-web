@@ -113,7 +113,7 @@ public class T002 extends HttpServlet{
 		else if("last".equals(sMode))
 		{
 			List<CustomerInfo> listAccount = (List<CustomerInfo>) session.getAttribute("listAccount");
-			index = (listAccount.size()/15) -1  ;
+			index = (listAccount.size()/15)   ;
 			session.setAttribute("index", index);
 			List<CustomerInfo> bathList = ListDivide.getBatchAtIndex(listAccount, index);
 		    request.setAttribute("bathList", bathList);	    

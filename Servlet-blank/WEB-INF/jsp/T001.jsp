@@ -32,8 +32,8 @@
                 <td><input type="password" id="password" name="password"></td>
             </tr>
             <tr style="padding: 20px">
-                <td><input type="submit" id="button" value="Login"></td>
-                <td><button type="button" id="button" onclick="clearform()">Clear</button></td>
+                <td><input type="submit" class="button" value="Login"></td>
+                <td><button type="button" class="button" onclick="clearform()">Clear</button></td>
             </tr>
         </table>
     </form>
@@ -58,7 +58,7 @@
         border-right: 3px solid black;
     }
 
-    button {
+    #button {
         background-color: rgb(192, 192, 192);
         margin-left: 150px;
         margin-top: 40px;

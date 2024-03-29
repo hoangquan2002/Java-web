@@ -8,9 +8,9 @@
 <title>SEARCH TRAINING</title>
 
 </head>
-<body style="background-color: rgb(204, 255, 255);">
+<body style="background-color: rgb(204, 255, 255); width: 99%;">
 	<div
-		style="padding: 10px; color: red; font-size: 25px; font-weight: bold;">Training</div>
+		style="padding: 8px; color: red; font-size: 25px; font-weight: bold;">Training</div>
 	<hr width="100%" align="center" color="black" size="1" />
 	<div style="padding: 8px;">Login > Search Customer</div>
 	<div class="container">
@@ -18,7 +18,7 @@
 		<div><a href="#" onclick="logOut()" id="logout">Log Out</a></div>
 
 	</div>
-	<hr style="" />
+	<hr width="100%" align="center" color="black" size="1" />
 
 	<form id="Form" method="post" action="T002">
 		<label for="customerName">Customer Name:</label> <input type="text"
@@ -38,10 +38,10 @@
 
 	</form>
 
-	<button onclick="firstPage()" class="common-button">&lt;&lt;</button>
-	<button onclick="previousPage()" class="common-button">&lt;</button>
-	<button onclick="lastPage()" class="common-button" style="float: right">&gt;&gt;</button>
-	<button onclick="nextPage()" class="common-button" style="float: right">&gt;</button>
+	<button onclick="firstPage()" class="common1-button">&lt;&lt;</button>
+	<button onclick="previousPage()" class="common1-button">&lt;</button>
+	<button onclick="lastPage()" class="common2-button" style="float: right">&gt;&gt;</button>
+	<button onclick="nextPage()" class="common2-button" style="float: right">&gt;</button>
 
 	<table>
 		<tr>
@@ -80,9 +80,47 @@
 padding: 8px;
 float: right;
 }
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+body {
+            background-color: rgb(204, 255, 255);
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid green; 
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: green;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgb(204, 255, 255);
+        }
+
+        tr:nth-child(odd) {
+            background-color: white; 
+        }
 </style>
 </body>
 <script>
+var ind = parseInt('<%= session.getAttribute("index") != null ? session.getAttribute("index") : "0" %>');
+var total = parseInt('<%= session.getAttribute("totalPage") != null ? session.getAttribute("totalPage") : "0" %>');
+
 function search() {    
     document.getElementById('mode').value = 'search';
     document.getElementById('Form').submit();
@@ -95,6 +133,33 @@ function previousPage() {
     document.getElementById('mode').value = 'previous';
     document.getElementById('Form').submit();
 }
+function firstPage() {    
+    document.getElementById('mode').value = 'first';
+    document.getElementById('Form').submit();
+}
+function lastPage() {    
+    document.getElementById('mode').value = 'last';
+    document.getElementById('Form').submit();
+    
+    
+}
+function disableButton() {
+	var nextButton = document.querySelectorAll(".common2-button"); 
+	if(ind>=total){		   
+		nextButton.forEach(function(button) {
+	    button.disabled = true;
+	    });
+    }
+	var preButton = document.querySelectorAll(".common1-button"); 
+	if(ind <= 0){		   
+		preButton.forEach(function(button) {
+	    button.disabled = true;
+	    });
+    }
+	
+}
+disableButton();
+
 function logOut(){    
     document.getElementById('mode').value = 'logout';
     document.getElementById('Form').submit();
