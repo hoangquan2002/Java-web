@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,10 +17,10 @@
 	padding: 8px;
 	float: right;
 }
+
 #editForm {
 	
 }
-
 </style>
 </head>
 <body style="background-color: rgb(204, 255, 255);">
@@ -35,43 +35,58 @@
 	</div>
 	<hr width="100%" align="center" color=#3366ff size="10" />
 	<center>
-	<form action="T003" method="post" id="editForm">
-	<table>
-            <tr>
-                <td>Customer ID:</td>
-                <td><label for="customerID"><%= request.getParameter("lblCustomerID") %></label></td>
-            </tr>
-            <tr>
-                <td>Customer Name:</td>
-                <td><input type="text" id="txtCustomerName" name="customerName"></td>
-            </tr>
-            <tr>
-                <td>Sex:</td>
-                <td>
-                    <select id="cboSex" name="sex">
-                    	<option value=""></option>
-						<option value="Male">Male</option>
-						<option value="Female">Female</option>
-				</select>
-                </td>
-            </tr>
-            <tr>
-                <td>Birthday:</td>
-                <td><input type="text" id="txtBirthday" name="birthday"></td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td><input type="text" id="txtEmail" name="email"></td>
-            </tr>
-            <tr>
-                <td>Address:</td>
-                <td><textarea id="txaAddress" name="address" rows="4" cols="30"></textarea></td>
-            </tr>
-        </table>
-        <input type="submit" value="Submit">
-	</form>
+		<form action="T003" method="post" id="editForm">
+			<table>
+				<tr>
+					<td>Customer ID:</td>
+					<td><label for="customerID">${customerId}</label></td>
+				</tr>
+				<tr>
+					<td>Customer Name:</td>
+					<td><input type="text" id="txtCustomerName"
+						name="customerName" value="${customerName}"></td>
+				</tr>
+				<tr>
+					<td>Sex:</td>
+					<td><select id="cboSex" name="sex">
+							<option value="" ></option>
+							<option value="M" ${sex eq 'M' ? 'selected' : ''}>Male</option>
+                        <option value="F" ${sex eq 'F' ? 'selected' : ''}>Female</option>
+					</select></td>
+
+				</tr>
+				<tr>
+					<td>Birthday:</td>
+					<td><input type="text" id="txtBirthday" name="birthday" value="${birthday}"></td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td><input type="text" id="txtEmail" name="email" value="${email}"></td>
+				</tr>
+				<tr>
+					<td>Address:</td>
+					<td><textarea id="txaAddress" name="address" rows="4"
+							cols="30" >${address}</textarea></td>
+				</tr>
+			</table>
+			<button onclick="save()" id="btnSave" class="common-button">Save</button>
+			<input type="hidden" id="mode" name="mode" value=""> 
+		<input type="submit" style="display: none;">
+			
+		</form>
 	</center>
+<script type="text/javascript">
+function save() {    
+    document.getElementById('mode').value = 'save';
+    document.getElementById('editForm').submit();
+    
+    
+}
 
-
+function logOut(){    
+    document.getElementById('mode').value = 'logout';
+    document.getElementById('editForm').submit();
+}
+</script>
 </body>
 </html>

@@ -24,4 +24,15 @@
  <servlet-name>T002</servlet-name>
  <url-pattern>/T002</url-pattern>
 </servlet-mapping>
+
+<servlet>
+ <servlet-name>T003</servlet-name>
+ <servlet-class>fjs.cs.action.T003</servlet-class>
+</servlet>
+ 
+<servlet-mapping>
+ <servlet-name>T003</servlet-name>
+ <url-pattern>/T003</url-pattern>
+</servlet-mapping>
+
 </web-app>

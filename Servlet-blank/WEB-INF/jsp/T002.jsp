@@ -53,7 +53,7 @@
 		</tr>
 		<c:forEach items="${bathList}" var="i">
 			<tr>
-				<td><a href="T003.jsp?customerId=${i.customerId}">${i.customerId}</a></td>
+				<td><a href="T003?customerId=${i.customerId}">${i.customerId}</a></td>
 				<td>${i.customerName}</td>
 				<td>${i.sex}</td>
 				<td>${i.birthday}</td>
