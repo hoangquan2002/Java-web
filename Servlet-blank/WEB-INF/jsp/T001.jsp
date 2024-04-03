@@ -6,7 +6,7 @@
     <title>Login</title>
 </head>
 <body style="background-color: rgb(204, 255, 255);">
-<div style="padding: 10px 30px; color: red; font-size: 25px; font-weight: bold;">Training</div>
+<div style="padding: 10px 30px; color: red; font-size: 25px; font-weight: bold;">Welcome</div>
 <hr width="98%" align="center" color="black" size="1" />
 <div style="padding: 8px 30px;">Login</div>
 <center>
@@ -43,6 +43,27 @@
 <div style="padding: 8px 30px; font-size: 10px">Copyright (c) 2000-2008 FUJINET, All Rights Reserved.</div>
 
 <style>
+.button {
+	margin: 24px;
+    padding: 12px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: box-shadow 0.3s; 
+}
+
+.button:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.button:active {
+    background-color: #3e8e41;
+}
+
+.button:focus {
+    outline: none;
+}
+
     input#username, input#password {
         border-top: 3px solid black;
         border-left: 3px solid black;

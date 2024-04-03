@@ -5,8 +5,7 @@ import java.util.ArrayList;
 
 import model.CustomerInfo;
 
-import java.util.List;
-import java.util.ArrayList;
+
 
 public class ListDivide {
         

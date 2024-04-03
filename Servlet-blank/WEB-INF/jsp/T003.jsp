@@ -21,12 +21,74 @@
 #editForm {
 	
 }
+<style>
+body {
+    background-color: rgb(204, 255, 255);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#welcome {
+    padding: 8px;
+    float: left;
+}
+
+#logout {
+    padding: 8px;
+    float: right;
+}
+
+#editForm {
+    padding: 20px; 
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    padding: 10px; 
+}
+
+input[type="text"],
+select,
+textarea {
+    width: calc(100% - 20px); 
+    padding: 8px;
+    margin-bottom: 10px; 
+    box-sizing: border-box;
+}
+
+button {
+    padding: 12px 20px; 
+    cursor: pointer;
+    background-color: #4CAF50; 
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+button:hover {
+    background-color: #45a049; 
+}
+
+button:active {
+    background-color: #3e8e41; 
+}
+
+button:focus {
+    outline: none;
+}
+</style>
+
 </style>
 </head>
 <body style="background-color: rgb(204, 255, 255);">
 
 	<div
-		style="padding: 10px; color: red; font-size: 25px; font-weight: bold;">Training</div>
+		style="padding: 10px; color: red; font-size: 25px; font-weight: bold;">Detail customer</div>
 	<hr width="100%" align="center" color="black" size="1" />
 	<div style="padding: 8px;">Login > Search Customer</div>
 	<div class="container">

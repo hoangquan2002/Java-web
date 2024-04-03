@@ -46,6 +46,7 @@ public class T002 extends HttpServlet{
 
 
 	}
+	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher myRD = null;

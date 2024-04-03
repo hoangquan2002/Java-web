@@ -10,7 +10,7 @@
 </head>
 <body style="background-color: rgb(204, 255, 255); width: 99%;">
 	<div
-		style="padding: 8px; color: red; font-size: 25px; font-weight: bold;">Training</div>
+		style="padding: 8px; color: red; font-size: 25px; font-weight: bold;">Search</div>
 	<hr width="100%" align="center" color="black" size="1" />
 	<div style="padding: 8px;">Login > Search Customer</div>
 	<div class="container">
