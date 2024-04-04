@@ -17,7 +17,7 @@
   <h3 align="center">Customer management</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
@@ -74,9 +74,8 @@
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![Java]][Next-url]
+* [![Java][Java]][https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiJvLmV7qeFAxVlrlYBHTEeCcQQFnoECBEQAQ&url=https%3A%2F%2Fwww.java.com%2F&usg=AOvVaw07au0gJtrW9kRPFYV_4HTb&opi=89978449]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
